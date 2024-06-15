@@ -5,7 +5,7 @@
 
 ### The objective is to build a simple platform to upload and view files.
 
-### It has the following features:
+#### It has the following features:
 	User authentication via a token
 	List all files
 	Upload a new file

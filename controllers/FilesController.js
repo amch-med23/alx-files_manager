@@ -123,10 +123,10 @@ class FilesController {
   static async getShow(request, response) {
     const user = await FilesController.getUser(request);
     if (!user) {
-      return response.status(401).json({ error: 'Unauthorized' });'
+      return response.status(401).json({ error: 'Unauthorized' });
     }
     const fileId = request.params.id;
-    const files = dbClient,db,collection('files');
+    const files = dbClient.db.collection('files');
     const idObject = new ObjectID(fileId);
     const file = await files.fineOne({ _id: idObject, userId: user._id });
     if (!file) {
@@ -170,7 +170,7 @@ class FilesController {
 	    ...file,
 	    id: file._id,
 	  };
-	  delete tmpFile,_id;
+	  delete tmpFile._id;
 	  delete tmpFile.localPath;
 	  return tmpFile;
 	});
